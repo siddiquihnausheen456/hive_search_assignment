@@ -8,61 +8,31 @@
 import Foundation
 
 
-struct ResultModel : Codable{
-    var batchcomplete: String
+struct ResultModel : Decodable{
     var query: Query
 }
 
 
-struct Query : Codable{
-    var pages: Pages
+struct Query : Decodable{
+    var pages:   [String: PageData]
+
 }
 
 
-struct Pages: Codable{
-    var pageId : [String: PageData]
-    
-//    struct CodingKeys: CodingKey, Hashable {
-//            var stringValue: String
-//
-//            init(stringValue: String) {
-//                self.stringValue = stringValue
-//            }
-//
-//            var intValue: Int? {
-//                return nil
-//            }
-//
-//            init?(intValue: Int) {
-//                return nil
-//            }
-//        }
-//
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let pageIds = container.allKeys
-//        var pageData : [PageData] = []
-//
-//
-//    }
-    
-    
-}
 
-
-struct PageData : Codable{
+struct PageData : Decodable{
     var pageid: Int
     var title: String
     var index: Int
     var extract: String
-    var thumbnail: Thumbnail
+    var thumbnail: Thumbnail?
     
     
     
 }
 
 
-struct Thumbnail: Codable{
+struct Thumbnail: Decodable{
     var source: String
     var width: Int
     var height: Int

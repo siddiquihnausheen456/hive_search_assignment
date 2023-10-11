@@ -17,6 +17,8 @@
 		C0A0834F2AD5AB2500682639 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A0834D2AD5AB2500682639 /* ResultTableViewCell.xib */; };
 		C0A083512AD5B04F00682639 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A083502AD5B04F00682639 /* ResultModel.swift */; };
 		C0A083532AD5B39800682639 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A083522AD5B39800682639 /* ResultViewModel.swift */; };
+		C0A290A52AD727D700C03372 /* SearchFieldTableViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A290A32AD727D700C03372 /* SearchFieldTableViewcell.swift */; };
+		C0A290A62AD727D700C03372 /* SearchFieldTableViewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0A290A42AD727D700C03372 /* SearchFieldTableViewcell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		C0A0834D2AD5AB2500682639 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		C0A083502AD5B04F00682639 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		C0A083522AD5B39800682639 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		C0A290A32AD727D700C03372 /* SearchFieldTableViewcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldTableViewcell.swift; sourceTree = "<group>"; };
+		C0A290A42AD727D700C03372 /* SearchFieldTableViewcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFieldTableViewcell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				C0A0834D2AD5AB2500682639 /* ResultTableViewCell.xib */,
 				C0A083502AD5B04F00682639 /* ResultModel.swift */,
 				C0A083522AD5B39800682639 /* ResultViewModel.swift */,
+				C0A290A32AD727D700C03372 /* SearchFieldTableViewcell.swift */,
+				C0A290A42AD727D700C03372 /* SearchFieldTableViewcell.xib */,
 			);
 			path = hive_search_assignment;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A290A62AD727D700C03372 /* SearchFieldTableViewcell.xib in Resources */,
 				C0A083452AD5AA7E00682639 /* LaunchScreen.storyboard in Resources */,
 				C0A083422AD5AA7E00682639 /* Assets.xcassets in Resources */,
 				C0A0834F2AD5AB2500682639 /* ResultTableViewCell.xib in Resources */,
@@ -155,6 +162,7 @@
 				C0A083532AD5B39800682639 /* ResultViewModel.swift in Sources */,
 				C0A083392AD5AA7C00682639 /* AppDelegate.swift in Sources */,
 				C0A0834E2AD5AB2500682639 /* ResultTableViewCell.swift in Sources */,
+				C0A290A52AD727D700C03372 /* SearchFieldTableViewcell.swift in Sources */,
 				C0A083512AD5B04F00682639 /* ResultModel.swift in Sources */,
 				C0A0833B2AD5AA7C00682639 /* SceneDelegate.swift in Sources */,
 			);

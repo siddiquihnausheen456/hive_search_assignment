@@ -17,18 +17,19 @@ class ViewController: UIViewController {
         print("check item")
         self.resultViewModel = ResultviewModel()
         resultTableView.register(ResultTableViewCell.nib, forCellReuseIdentifier: ResultTableViewCell.identifier)
+        resultTableView.register(SearchFieldTableViewcell.nib, forCellReuseIdentifier: SearchFieldTableViewcell.identifier)
         resultTableView.dataSource = self.resultViewModel
         resultTableView.delegate = self.resultViewModel
         self.resultViewModel.viewController = self
         self.resultViewModel.tableView = self.resultTableView
         
-        makeAnApiCall()
+//        makeAnApiCall()
 
     }
     
     
     func makeAnApiCall(){
-        resultViewModel.callRequest(completion: {
+        resultViewModel.callRequest(searchString: "",completion: {
             result in
             if result{
                 DispatchQueue.main.async {
