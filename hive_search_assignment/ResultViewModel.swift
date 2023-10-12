@@ -59,8 +59,9 @@ class ResultviewModel : NSObject{
                 
                 let result = try? JSONDecoder().decode(ResultModel.self, from: data!)
                 self.resultModel = result
-                
-                for (key, value) in self.resultModel?.query.pages ?? [:]{
+                pageIds = []
+                for (key, _) in self.resultModel?.query.pages ?? [:]{
+                    
                     pageIds.append(key)
                 }
                 
@@ -99,32 +100,35 @@ extension ResultviewModel : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height =  ((self.resultModel?.query.pages[(pageIds[indexPath.row])]?.thumbnail?.height) ?? 0) + 70
-        
-        return CGFloat(height)
+        if indexPath.section == 1{
+            
+            let height =  ((self.resultModel?.query.pages[(pageIds[indexPath.row])]?.thumbnail?.height) ?? 0) + 70
+            
+            return CGFloat(height)
+        }else{
+             return 70
+        }
+ 
         
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 100), size:CGSize(width: self.tableView.frame.width, height: 100) ))
-        headerView.backgroundColor = .red
-      
-        let titleView = UILabel(frame: CGRect(origin: CGPoint(x:self.tableView.frame.width/2-40 , y: 0), size:CGSize(width: self.tableView.frame.width, height: 70) ))
-        titleView.text = "Results"
-        titleView.textColor = .black
-        
-        headerView.addSubview(titleView)
 
-        return headerView
+      
+        let titleView = UILabel(frame: CGRect(origin: CGPoint(x:0 , y:0), size:CGSize(width: self.tableView.frame.width, height: 20) ))
+        titleView.text = "Results"
+        titleView.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        
+        return titleView
     }
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == 0{
-            return 0
+        if section == 1 {
+            return 20
         }else{
-            return 70
+            return 0
         }
     }
     
@@ -135,7 +139,9 @@ extension ResultviewModel : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             if let cell = tableView.dequeueReusableCell(withIdentifier: SearchFieldTableViewcell.identifier)as? SearchFieldTableViewcell{
+                self.tableView.separatorColor = UIColor.clear
                 cell.textchangeClosure = { value in
+                    self.pageIds.removeAll()
                     self.callRequest(searchString: value, completion: {
                         result in
                         if(result){
@@ -151,6 +157,7 @@ extension ResultviewModel : UITableViewDataSource, UITableViewDelegate{
             
         }else if indexPath.section == 1{
             if let cell = tableView.dequeueReusableCell(withIdentifier: ResultTableViewCell.identifier) as? ResultTableViewCell{
+
                 cell.titleLabel.text = self.resultModel?.query.pages[(pageIds[indexPath.row])]?.title
                 
                 cell.descriptionLabel.text = self.resultModel?.query.pages[(pageIds[indexPath.row])]?.extract
@@ -190,12 +197,4 @@ extension ResultviewModel : UITableViewDataSource, UITableViewDelegate{
 }
 
 
-//extension String {
-//    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
-//        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-//        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font : font], context: nil)
-//
-//        return ceil(boundingBox.height)
-//    }
 
-//}

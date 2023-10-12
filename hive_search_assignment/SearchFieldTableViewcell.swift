@@ -16,7 +16,7 @@ class SearchFieldTableViewcell: UITableViewCell {
         
         searchField.tintColor = .blue
         searchField.clearButtonMode = .always
-//        searchField.addTarget(self, action: #selector(textFieldDidChanged(<#T##sender: UITextField##UITextField#>)), for: .valueChanged)
+
     }
     
     static var nib:UINib{
@@ -38,8 +38,8 @@ class SearchFieldTableViewcell: UITableViewCell {
                         self.textchangeClosure!(sender.text!)
 
     }
-    //    @IBAction func textFieldDidChanged(_ sender: UITextField) {
-//                self.textchangeClosure!(sender.text!)
-//
-//    }
+
+    @IBAction func textedingDidEnd(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
 }

@@ -23,8 +23,9 @@ class ViewController: UIViewController {
         self.resultViewModel.viewController = self
         self.resultViewModel.tableView = self.resultTableView
         
-//        makeAnApiCall()
-
+        self.navigationController?.navigationBar.topItem?.title = "Search"
+        self.navigationController?.navigationBar.backgroundColor = .systemBlue
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     
